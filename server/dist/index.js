@@ -30,6 +30,7 @@ const express_1 = __importStar(require("express"));
 const dotenv_1 = __importDefault(require("dotenv"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const errorMiddleware_1 = __importDefault(require("./middleware/errorMiddleware"));
+const cors_1 = __importDefault(require("cors"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 const port = process.env.PORT;
@@ -42,6 +43,7 @@ catch (error) {
 }
 app.use(express_1.default.json());
 app.use((0, express_1.urlencoded)({ extended: true }));
+app.use((0, cors_1.default)());
 const booksRoutes_1 = __importDefault(require("./routes/booksRoutes"));
 const userRoutes_1 = __importDefault(require("./routes/userRoutes"));
 app.use("/books", booksRoutes_1.default);

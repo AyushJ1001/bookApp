@@ -2,6 +2,7 @@ import express, { urlencoded } from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import errorHandler from "./middleware/errorMiddleware";
+import cors from "cors";
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ try {
 
 app.use(express.json());
 app.use(urlencoded({ extended: true }));
+app.use(cors());
 
 import bookRouter from "./routes/booksRoutes";
 import userRouter from "./routes/userRoutes";
