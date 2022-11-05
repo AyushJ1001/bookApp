@@ -14,6 +14,7 @@ function DashboardPage() {
     updatedAt: "",
     createdAt: "",
   });
+  const [isLoading, setIsLoading] = useState(true);
   const { user } = useSelector((state: RootState) => state.auth);
   const navigate = useNavigate();
   if (!user) navigate("/login");
@@ -26,9 +27,12 @@ function DashboardPage() {
     },
   })
     .then((res) => res.json())
-    .then((data) => setData(data));
+    .then((data) => {
+      setData(data);
+      setIsLoading(false);
+    });
 
-  return <Dashboard data={data} />;
+  return <Dashboard data={data} isLoading={isLoading} />;
 }
 
 export default DashboardPage;

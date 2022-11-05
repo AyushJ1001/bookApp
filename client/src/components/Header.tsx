@@ -28,7 +28,10 @@ function Header() {
             <Link to="/signup">Sign Up</Link>
           </>
         ) : (
-          <button onClick={logoutHandler}>Logout</button>
+          <>
+            <Link to="/dashboard">Dashboard</Link>
+            <button onClick={logoutHandler}>Logout</button>
+          </>
         )}
       </div>
     </header>

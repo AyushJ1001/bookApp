@@ -32,10 +32,10 @@ function LoginForm({ loginUser }: LoginFormProps) {
             type="email"
             placeholder="Email"
             onChange={(e) => setEmail(e.target.value)}
-            className={classes.inputEmail}
+            className={classes.input}
           />
           <input
-            className={classes.inputPassword}
+            className={classes.input}
             type={isChecked ? "text" : "password"}
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
