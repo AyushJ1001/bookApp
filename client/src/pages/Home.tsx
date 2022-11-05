@@ -11,11 +11,11 @@ function HomePage() {
   const URL = "https://www.googleapis.com/books/v1/volumes?q=";
   const [data, setData] = useState<any>([]);
   const isLoading = useRef(false);
-  const [searchText, setSearchText] = useState("");
-  useEffect(() => {
+  const searchText = useRef("");
+  const clickHandler = () => {
     isLoading.current = true;
     axios
-      .get(URL + encodeURI(searchText))
+      .get(URL + encodeURI(searchText.current))
       .then((response) => response.data)
       .then((data) => {
         console.log(data.items);
@@ -24,7 +24,7 @@ function HomePage() {
 
     isLoading.current = false;
     return () => console.log("Effect");
-  }, [JSON.stringify(data), searchText]);
+  }
 
   return (
     <>
@@ -32,8 +32,9 @@ function HomePage() {
       <input
         type="text"
         placeholder="Search"
-        onChange={(e) => setSearchText(e.target.value)}
+        onChange={(e) => (searchText.current = e.target.value)}
       />
+      <button onClick={clickHandler}>Search</button>
       {isLoading.current ? (
         <h1>Loading your books...</h1>
       ) : data.length === 0 ? (

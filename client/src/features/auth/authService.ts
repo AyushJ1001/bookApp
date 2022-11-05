@@ -8,6 +8,11 @@ export type userData = {
   password: String;
 };
 
+export type userLoginData = {
+  email: String;
+  password: String;
+};
+
 // Register User
 const register = async (userData: userData) => {
   const response = await axios.post(API_URL + "register", userData);
@@ -20,7 +25,7 @@ const register = async (userData: userData) => {
 };
 
 // Login User
-const login = async (userData: userData) => {
+const login = async (userData: userLoginData) => {
   const response = await axios.post(API_URL + "login", userData);
 
   if (response.data) {
