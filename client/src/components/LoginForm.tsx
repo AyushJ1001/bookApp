@@ -40,16 +40,18 @@ function LoginForm({ loginUser }: LoginFormProps) {
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <input
-            type="checkbox"
-            className={classes.checkbox}
-            onChange={() => setIsChecked((prev) => !prev)}
-          />
-          {isChecked ? (
-            <FontAwesomeIcon icon={faEye} className={classes.icon} />
-          ) : (
-            <FontAwesomeIcon icon={faEyeSlash} className={classes.icon} />
-          )}
+          <div className={classes.passwordGroup}>
+            <input
+              type="checkbox"
+              className={classes.checkbox}
+              onChange={() => setIsChecked((prev) => !prev)}
+            />
+            {isChecked ? (
+              <FontAwesomeIcon icon={faEye} className={classes.icon} />
+            ) : (
+              <FontAwesomeIcon icon={faEyeSlash} className={classes.icon} />
+            )}
+          </div>
           <button type="submit" className={classes.submit}>
             Login
           </button>
