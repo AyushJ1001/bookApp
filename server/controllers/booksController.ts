@@ -61,3 +61,15 @@ export const removeBook = async (req: Request, res: Response) => {
     throw new Error("Error");
   }
 };
+
+// get book by name
+export const getBookByName = async (req: Request, res: Response) => {
+  if (!res.locals.user) {
+    res.status(400);
+    throw new Error("Not logged in");
+  }
+
+  const book = await Book.find({ name: req.params.name });
+
+  res.status(200).json(book);
+};

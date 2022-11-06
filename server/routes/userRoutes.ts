@@ -1,12 +1,19 @@
-import express from 'express'
-import asyncHandler from 'express-async-handler'
-import { registerUser, loginUser, allUsers } from '../controllers/userController'
-const router = express.Router()
+import express from "express";
+import asyncHandler from "express-async-handler";
+import {
+  registerUser,
+  loginUser,
+  allUsers,
+  getUser,
+} from "../controllers/userController";
+const router = express.Router();
 
-router.get('/', asyncHandler(allUsers))
+router.get("/", asyncHandler(allUsers));
 
-router.post('/register', asyncHandler(registerUser))
+router.get("/get", asyncHandler(getUser));
 
-router.post('/login', asyncHandler(loginUser))
+router.post("/register", asyncHandler(registerUser));
 
-export default router
+router.post("/login", asyncHandler(loginUser));
+
+export default router;

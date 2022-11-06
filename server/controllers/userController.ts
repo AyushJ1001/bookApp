@@ -16,6 +16,28 @@ export const allUsers = async (req: Request, res: Response) => {
   }
 };
 
+export const getUser = async (req: Request, res: Response) => {
+  const token = req.headers.authorization?.split(" ")[1];
+  let id = jwt.verify(token as string, process.env.JWT_SECRET as string);
+  // check if id is a payload
+  if (typeof id === "object") {
+    id = id.id;
+  }
+
+  try {
+    const user = await User.findById(id);
+    if (user) {
+      res.status(200).json(user);
+    } else {
+      res.status(404);
+      throw new Error("User not found");
+    }
+  } catch (error: any) {
+    res.status(400);
+    throw new Error("Error: " + error.message);
+  }
+};
+
 export const registerUser = async (req: Request, res: Response) => {
   const userData = req.body;
   const salt = await bcrypt.genSalt(10);
@@ -24,7 +46,7 @@ export const registerUser = async (req: Request, res: Response) => {
 
   if (user) {
     res.status(400);
-    throw new Error("User already exists");
+    throw new Error("User with this email already exists");
   }
 
   const hashedPassword = await bcrypt.hash(userData.password, salt);
@@ -73,4 +95,3 @@ const generateToken = (id: mongoose.Types.ObjectId) =>
   jwt.sign({ id }, process.env.JWT_SECRET as string, {
     expiresIn: "30d",
   });
-
