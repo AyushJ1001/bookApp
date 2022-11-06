@@ -1,0 +1,89 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 80vh;
+    font-family: 'Nunito', sans-serif;
+    gap: 2rem;
+    margin-bottom:25rem;
+}
+
+.title {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #3f51b5;
+}
+
+.search {
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font: inherit;
+   font-size: 1.5rem;
+    border: 1px solid #3f51b5;
+    outline: none;
+    text-align: center;
+}
+
+.searchBtn {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #3f51b5;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+.data {
+    position: relative;
+    top: 70rem;
+    display: flex;
+    flex-direction: column;
+    max-height: 50%;
+}
+
+.loading-p1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #3f51b5;
+}
+
+.empty {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #3f51b5;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 140rem;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 1rem;
+}
+
+
+.nextButton, .prevButton {
+    border: none;
+    border-radius: 5px;
+    background-color: #3f51b5;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
