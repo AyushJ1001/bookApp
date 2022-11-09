@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { AppDispatch, RootState } from "../app/store";
 import LoginForm from "../components/LoginForm";
-import { userLoginData} from "../features/auth/authService";
+import { userLoginData } from "../features/auth/authService";
 import { login } from "../features/auth/authSlice";
 
 function LoginPage() {
@@ -12,6 +12,12 @@ function LoginPage() {
   const loginUser = async (data: userLoginData) => {
     const result = await dispatch(login(data));
     console.log(result);
+
+    // if error
+    if (result.payload.error) {
+      // redirect
+      navigate("/login");
+    }
 
     navigate("/dashboard");
   };

@@ -6,6 +6,7 @@ import { removeBook } from "../features/book/bookSlice";
 import { AppDispatch } from "../app/store";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router";
+import SingleBook from "./SingleBook";
 
 export type Data = {
   _id: string;
@@ -40,13 +41,14 @@ function Dashboard(props: DashboardProps) {
         <p className={classes.noBooks}>No Books Yet!</p>
       ) : (
         <>
-          <ul>
+          <ul className={classes.books}>
             {data.map((book: Book) => (
-              <li key={book._id}>
-                <h3>{book.name}</h3>
-                <h4>{book.author}</h4>
-                <button onClick={() => removeHandler(book._id)}>Remove</button>
-              </li>
+              <SingleBook
+                key={book._id}
+                book={book}
+                onClick={() => removeHandler(book._id)}
+                total_pages={Math.floor(Math.random() * 400) + 100}
+              />
             ))}
           </ul>
           <Link to="/" className={classes.newBookLink}>

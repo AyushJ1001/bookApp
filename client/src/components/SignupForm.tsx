@@ -43,7 +43,7 @@ function SignupForm({ signupUser }: SignupFormProps) {
             className={classes.input}
           />
           <input
-            type="password"
+            type={isChecked ? "text" : "password"}
             placeholder="password"
             onChange={(e) => setPassword(e.target.value)}
             className={classes.input}
@@ -61,7 +61,7 @@ function SignupForm({ signupUser }: SignupFormProps) {
             )}
           </div>
           <button type="submit" className={classes.submit}>
-            Login
+            Sign Up
           </button>
         </div>
       </form>

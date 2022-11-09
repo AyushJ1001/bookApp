@@ -9,6 +9,9 @@ function Header() {
   const dispatch = useDispatch<AppDispatch>();
   const logoutHandler = () => {
     dispatch(logout());
+
+    // redirect to home page
+    window.location.href = "/";
   };
 
   let { user } = useSelector((state: RootState) => state.auth);

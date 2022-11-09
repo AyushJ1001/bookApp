@@ -65,17 +65,19 @@ function Home() {
   return (
     <div className={classes.home}>
       <h1 className={classes.title}>HomePage</h1>
-      <input
-        type="text"
-        placeholder="Search"
-        onChange={(e) =>
-          (searchText.current = (e.target as HTMLButtonElement).value)
-        }
-        className={classes.search}
-      />
-      <button onClick={() => setCurrentPage(1)} className={classes.searchBtn}>
-        Search
-      </button>
+      <section className={classes.searchField}>
+        <input
+          type="text"
+          placeholder="Search"
+          onChange={(e) =>
+            (searchText.current = (e.target as HTMLButtonElement).value)
+          }
+          className={classes.search}
+        />
+        <button onClick={() => setCurrentPage(1)} className={classes.searchBtn}>
+          🔎
+        </button>
+      </section>
 
       {isLoading.current ? (
         <h1 className={classes.loadingP1}>Loading your books...</h1>

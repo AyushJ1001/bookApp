@@ -1,14 +1,15 @@
 /* header should be a single row at the top */
 /* the title is large text at the left side while the links are grouped together on the right side */
-
 .header {
+  position: sticky;
+  top: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
   padding: 0.5rem 1rem;
   background-color: #f0f0f0;
   margin-bottom: 1rem;
+  z-index: 1;
 }
 
 .title {
@@ -37,8 +38,3 @@
   color: #f00;
 }
 
-button {
-  cursor: pointer;
-  border: none;
-  text-decoration: none;
-}

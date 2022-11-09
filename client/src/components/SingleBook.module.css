@@ -1,0 +1,76 @@
+.book {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 3px groove #ccc;
+    border-radius: 1rem;
+    margin: 1rem;
+    gap: 1rem;
+    width: min(100%, 500px);
+    padding: 1rem;
+}
+
+.book h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+}
+
+.book h4 {
+    font-size: 1.2rem;
+    font-style: italic;
+    opacity: .8;
+    font-weight: normal;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+}
+
+.pageChange {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pageChange button {
+    color: whitesmoke;
+    padding: .5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: .5rem;
+    background-color: #3f51b5;
+    font-size: 1.5rem;
+
+}
+
+.pageChange button:hover {
+    color: #3f51b5;
+    background-color: #f0f0f0;
+}
+
+.pageChange p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.prevPage {
+    margin-right: 1rem;
+}
+
+.nextPage {
+    margin-left: 1rem;
+}
+
+.Remove {
+    padding: .5rem;
+    font-size: 1.2rem;
+    border: 1px solid darkred;
+    border-radius: .5rem;
+    color: red;
+}
+
+.Remove:hover {
+    background-color: red;
+    color: white;
+}
